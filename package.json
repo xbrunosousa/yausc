@@ -1,0 +1,29 @@
+{
+	"name": "yausc",
+	"version": "0.0.1",
+	"description": "Yet Another URL Shortener Client",
+	"repository": "https://github.com/xbrunosousa/YAUSC",
+	"homepage": "https://github.com/xbrunosousa/YAUSC",
+	"author": "Bruno Vinícius <mail@bruno.vin>",
+	"license": "MIT",
+	"private": true,
+	"dependencies": {
+		"bitly": "^6.0.6",
+		"date-fns": "^1.29.0",
+		"gh-pages": "^1.2.0",
+		"react": "^16.4.1",
+		"react-dom": "^16.4.1",
+		"react-ga": "^2.5.3",
+		"react-scripts": "1.1.4",
+		"reactstrap": "^6.2.0"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject",
+		"styles": "sass --watch src/components/App.scss:src/components/App.css --style compressed",
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d build"
+	}
+}
