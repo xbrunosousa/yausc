@@ -14,7 +14,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 			</Button>
 		</span>
 		<Container>
-			<Table className='historic-table' responsive striped size='sm'>
+			<Table responsive className='historic-table'>
 				<thead>
 					<tr>
 						<th>Link original</th>
@@ -27,11 +27,19 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 						userDataSaved.map((item, key) =>
 							<tr key={key}>
 								<td>
-									<a href={item.originalLink}>{item.originalLink}</a>
+									<a target='_blank'
+										title={item.originalLink}
+										href={item.originalLink}>{item.originalLink.substr(0, 25)
+											.replace('https://', '').replace('http://', '') + '...'}
+									</a>
 								</td>
 
 								<td>
-									<a href={item.linkshortened}>{item.linkshortened}</a>
+									<a target='_blank'
+										title={item.linkshortened}
+										href={item.linkshortened}>
+										{item.linkshortened.replace('http://', '')}
+									</a>
 								</td>
 
 								<td>

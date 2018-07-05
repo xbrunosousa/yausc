@@ -37,4 +37,7 @@ body {
 	.copied {
 		color: $color-success;
 	}
+	.fa-clipboard, .fa-clipboard-check {
+		font-size: 22px;
+	}
 }

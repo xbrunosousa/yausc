@@ -8,6 +8,7 @@ import format from 'date-fns/format'
 import Historic from './Historic/Historic'
 import NavbarApp from './NavbarApp/NavbarApp'
 import FooterApp from './FooterApp/FooterApp'
+import bg from './../assets/bg.jpg'
 
 class App extends Component {
 	componentDidMount() {
@@ -60,7 +61,7 @@ class App extends Component {
 
 					const newItems = { // Dados para salvar
 						linkshortened: this.state.outputLink,
-						dateshort: format(new Date(), 'DD/MM - HH:mm'),
+						dateshort: format(new Date(), 'DD/MM, HH:mm'),
 						originalLink: this.state.inputValue
 					}
 					oldItems.push(newItems) // concatena os novos items com os itens antigos
@@ -69,7 +70,7 @@ class App extends Component {
 				} else {
 					const itemsToSave = [{ // dados que serão salvos no storage...
 						linkshortened: this.state.outputLink,
-						dateshort: format(new Date(), 'DD/MM - HH:mm'),
+						dateshort: format(new Date(), 'DD/MM, HH:mm'),
 						originalLink: this.state.inputValue
 					}]
 
@@ -93,7 +94,7 @@ class App extends Component {
 	render() {
 		const userDataSaved = JSON.parse(localStorage.getItem('values-user'))
 		return (
-			<div className='App'>
+			<div className='App' style={{backgroundImage: `url(${bg})`}}>
 				<NavbarApp />
 				<Form
 					handleSearch={(e) => this.handleSearch(e)}
@@ -108,7 +109,7 @@ class App extends Component {
 						<Col sm={{ size: 4, offset: 4 }}>
 							<div className='result-link'>
 								<InputGroup>
-									<Input id='result'
+									<Input bsSize='lg' id='result'
 										readOnly
 										className='result-link-input'
 										type='text'

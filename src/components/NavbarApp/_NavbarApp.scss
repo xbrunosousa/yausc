@@ -1,5 +1,6 @@
 .NavbarApp {
-	@include bg-gradient;
+	background: transparent;
+	border-bottom: 1px solid #DDE1E6;
 	margin: 0 auto;
 	text-align: center;
 	padding: .55rem 1.25rem;
