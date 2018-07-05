@@ -1,1 +1,19 @@
 @import './Form/Form';
+
+body {
+	background: #F7F9FB;
+}
+
+.App {
+	.result-link-input {
+		background: transparent;
+		margin: 30px auto;
+		display: block;
+		border: 0;
+		&:focus {
+			border: 0;
+ 			box-shadow: none;
+  			outline: 0 none;
+		}
+	}
+}

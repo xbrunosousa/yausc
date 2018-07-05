@@ -15,13 +15,13 @@ const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening }
 						bsSize='lg'
 						disabled={isShortening}
 						type='url'
-						className='input-search-name'
+						className='input-link'
 						onChange={handleSearch}
 						onKeyDown={shortLinkOnEnter}
 						placeholder='Insira o link para encurtar...' />
 
 					<InputGroupAddon addonType='append'>
-						<Button disabled={!valid} onClick={shortLink} color='success'>Encurtar</Button>
+						<Button disabled={!valid} onClick={shortLink} color='primary'>Encurtar</Button>
 					</InputGroupAddon>
 
 				</InputGroup>

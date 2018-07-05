@@ -16,7 +16,8 @@ class App extends Component {
 			inputValue: undefined,
 			outputLink: undefined,
 			valid: false,
-			isShortening: false
+			isShortening: false,
+			isShortened: false
 		}
 	}
 
@@ -49,7 +50,8 @@ class App extends Component {
 			.then((res) => {
 				this.setState({
 					outputLink: res.data.url,
-					isShortening: false
+					isShortening: false,
+					isShortened: true
 				})
 			})
 	}
@@ -64,10 +66,12 @@ class App extends Component {
 					shortLinkOnEnter={(e) => this.shortLinkOnEnter(e)}
 					valid={this.state.valid}
 					isShortening={this.state.isShortening} />
-
-				<div className='result-link'>
-					<span>{this.state.outputLink}</span>
-				</div>
+				{
+					this.state.isShortened === true &&
+					<div className='result-link'>
+						<input readOnly className='result-link-input' type='textarea' value={this.state.outputLink} />
+					</div>
+				}
 			</div>
 		)
 	}
