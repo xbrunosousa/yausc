@@ -16,7 +16,6 @@ $primary-color: #5097FF;
 		border-radius: 50%;
 		animation: animate 2s linear infinite;
 	}
-	
 	.loading:before{
 		content: '';
 		position: absolute;
@@ -29,17 +28,13 @@ $primary-color: #5097FF;
 		border-top: 4px solid $primary-color;
 		border-radius: 50%;
 		animation: animate 3.5s linear infinite;
-	 
 	}
 	@keyframes animate{
-	
 		0%{
 			transform: rotate(0deg);
-	
 		}
 		100%{
 			transform: rotate(360deg);
 		}
-	
 	}
 }
