@@ -3,6 +3,7 @@ import Form from './Form/Form'
 import './App.css'
 import { regexURL } from './../regex'
 import ReactGA from 'react-ga'
+import { Col, Container, Input, InputGroupAddon, Button, InputGroup } from 'reactstrap'
 import format from 'date-fns/format'
 import Historic from './Historic/Historic'
 import NavbarApp from './NavbarApp/NavbarApp'
@@ -22,7 +23,8 @@ class App extends Component {
 			valid: false,
 			isShortening: false,
 			isShortened: false,
-			userDataSaved: undefined
+			userDataSaved: undefined,
+			isCopied: false
 		}
 	}
 
@@ -73,13 +75,19 @@ class App extends Component {
 
 					localStorage.setItem('values-user', JSON.stringify(itemsToSave)) // salva os dados acima em JSON
 				}
-				this.setState({ isShortening: undefined })
+				this.setState({ isShortening: undefined, isCopied: false })
 			})
 	}
 
 	clearStorage = () => { // Limpa os dados salvos no localStorage
 		localStorage.clear()
 		this.setState({ userDataSaved: null }) // Não haverá dados no localstorage, então...
+	}
+
+	copyLink = () => {
+		document.getElementById('result').select() // seleciona conteúdo do input
+		document.execCommand('copy') // copy selected
+		this.setState({ isCopied: true }) // Auto explicativo 🤨
 	}
 
 
@@ -97,9 +105,24 @@ class App extends Component {
 
 				{
 					this.state.isShortened === true &&
-					<div className='result-link'>
-						<input readOnly className='result-link-input' type='textarea' value={this.state.outputLink} />
-					</div>
+					<Container>
+						<Col sm={{ size: 4, offset: 4 }}>
+							<div className='result-link'>
+								<InputGroup>
+									<Input id='result'
+										readOnly
+										className='result-link-input'
+										type='text'
+										value={this.state.outputLink} />
+									<InputGroupAddon addonType='append'>
+										<Button onClick={this.copyLink} color='secondary'>
+											{this.state.isCopied === true ? <i className='fas fa-clipboard-check copied' /> : <i className='fas fa-clipboard' />}
+										</Button>
+									</InputGroupAddon>
+								</InputGroup>
+							</div>
+						</Col>
+					</Container>
 				}
 
 				{

@@ -20,15 +20,21 @@ body {
 }
 
 .App {
+	.result-link {
+		margin-top: 20px;
+	}
 	.result-link-input {
 		&:focus {
 			border: 0;
  			box-shadow: none;
   			outline: 0 none;
 		}
-		background: transparent;
-		margin: 30px auto;
-		display: block;
-		border: 0;
+		text-align: center;
+		&::selection {
+			background: $color-success;
+		}
+	}
+	.copied {
+		color: $color-success;
 	}
 }

@@ -2,7 +2,7 @@
 
 ## ToDo - Updates futuros:
 
-* [ ] Botão para copiar textarea para o clipboard;
+* [x] Botão para copiar textarea para o clipboard;
 * [x] Navbar;
 * [x] Favicons;
 * [x] Footer;
