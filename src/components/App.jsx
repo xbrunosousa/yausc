@@ -6,6 +6,7 @@ import ReactGA from 'react-ga'
 import format from 'date-fns/format'
 import Historic from './Historic/Historic'
 import NavbarApp from './NavbarApp/NavbarApp'
+import FooterApp from './FooterApp/FooterApp'
 
 class App extends Component {
 	componentDidMount() {
@@ -93,18 +94,22 @@ class App extends Component {
 					shortLinkOnEnter={(e) => this.shortLinkOnEnter(e)}
 					valid={this.state.valid}
 					isShortening={this.state.isShortening} />
+
 				{
 					this.state.isShortened === true &&
 					<div className='result-link'>
 						<input readOnly className='result-link-input' type='textarea' value={this.state.outputLink} />
 					</div>
 				}
+
 				{
 					userDataSaved !== null &&
 					<Historic
 						userDataSaved={userDataSaved}
 						clearStorage={() => this.clearStorage()} />
 				}
+
+				<FooterApp />
 			</div>
 		)
 	}
