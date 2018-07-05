@@ -9,6 +9,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 				onClick={clearStorage}
 				className='historic-clear-btn'
 				size='sm'
+				color='warning'
 				outline>
 				Limpar
 			</Button>
