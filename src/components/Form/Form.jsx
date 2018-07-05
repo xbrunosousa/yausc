@@ -1,7 +1,7 @@
 import React from 'react'
 import { InputGroup, InputGroupAddon, Input, Container, Col, Button } from 'reactstrap'
 
-const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid }) => (
+const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening }) => (
 	<div className='Form'>
 
 		<Container>
@@ -13,6 +13,7 @@ const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid }) => (
 
 					<Input
 						bsSize='lg'
+						disabled={isShortening}
 						type='url'
 						className='input-search-name'
 						onChange={handleSearch}
@@ -24,6 +25,10 @@ const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid }) => (
 					</InputGroupAddon>
 
 				</InputGroup>
+				{
+					isShortening === true &&
+					<div>Está carregando</div>
+				}
 			</Col>
 		</Container>
 

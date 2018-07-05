@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import Form from './Form/Form'
 import './App.css'
-import {regexURL} from './../regex'
+import { regexURL } from './../regex'
+import ReactGA from 'react-ga'
 
 class App extends Component {
+	componentDidMount() {
+		// Google Analytics
+		ReactGA.initialize('UA-118867430-1')
+		ReactGA.pageview(window.location.pathname + window.location.search)
+	}
 	constructor() {
 		super()
 		this.state = {
 			inputValue: undefined,
 			outputLink: undefined,
-			valid: false
+			valid: false,
+			isShortening: false
 		}
 	}
 
@@ -22,7 +29,7 @@ class App extends Component {
 
 		if (regexURL.test(value) === true) {
 			console.log('URL Válida')
-			this.setState({valid: true})
+			this.setState({ valid: true })
 		} else {
 			this.setState({ valid: false })
 		}
@@ -37,11 +44,12 @@ class App extends Component {
 	shortLink = () => {
 		const BitlyClient = require('bitly')
 		const bitly = new BitlyClient('5e933564f8015b00e7b23a4830acff93b45f2850') // Generic Access Token bit.ly
-
+		this.setState({ isShortening: true })
 		bitly.shorten(this.state.inputValue)
 			.then((res) => {
 				this.setState({
-					outputLink: res.data.url
+					outputLink: res.data.url,
+					isShortening: false
 				})
 			})
 	}
@@ -54,7 +62,8 @@ class App extends Component {
 					handleSearch={(e) => this.handleSearch(e)}
 					shortLink={() => this.shortLink()}
 					shortLinkOnEnter={(e) => this.shortLinkOnEnter(e)}
-					valid={this.state.valid} />
+					valid={this.state.valid}
+					isShortening={this.state.isShortening} />
 
 				<div className='result-link'>
 					<span>{this.state.outputLink}</span>
