@@ -1,7 +1,18 @@
+// variables
+$button-clear: #ffa500;
+$primary-color: #006BFF;
+$color-success: #5fe83a;
+
+// mixins
+@mixin bg-gradient {
+	background-image: linear-gradient(to right, #eaecee, #edeff1, #f0f2f4, #f4f6f8, #f7f9fb);
+}
+
+// imports
 @import './Form/Form';
 @import './LoadingScreen/LoadingScreen';
-
-$primary-color: #569DFE;
+@import './Historic/Historic';
+@import './NavbarApp/NavbarApp';
 
 body {
 	background: #F7F9FB;
@@ -9,14 +20,14 @@ body {
 
 .App {
 	.result-link-input {
-		background: transparent;
-		margin: 30px auto;
-		display: block;
-		border: 0;
 		&:focus {
 			border: 0;
  			box-shadow: none;
   			outline: 0 none;
 		}
+		background: transparent;
+		margin: 30px auto;
+		display: block;
+		border: 0;
 	}
 }

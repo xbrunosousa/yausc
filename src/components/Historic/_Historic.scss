@@ -1,0 +1,17 @@
+.Historic {
+	margin-top: 50px;
+	.historic-title {
+		display: block;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	.historic-table {
+		text-align: center;
+	}
+	.historic-clear-btn {
+		color: $button-clear;
+		border: $button-clear 1px solid;
+		
+		margin-left: 10px;
+	}
+}
