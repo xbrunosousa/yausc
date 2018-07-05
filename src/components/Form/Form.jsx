@@ -1,5 +1,6 @@
 import React from 'react'
 import { InputGroup, InputGroupAddon, Input, Container, Col, Button } from 'reactstrap'
+import LoadingScreen from './../LoadingScreen/LoadingScreen'
 
 const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening }) => (
 	<div className='Form'>
@@ -27,7 +28,7 @@ const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening }
 				</InputGroup>
 				{
 					isShortening === true &&
-					<div>Está carregando</div>
+					<LoadingScreen />
 				}
 			</Col>
 		</Container>
