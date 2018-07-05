@@ -40,8 +40,19 @@ body {
 	.fa-clipboard, .fa-clipboard-check {
 		font-size: 22px;
 	}
+	.fa-clipboard {
+		text-shadow: 0px 0px 3px #000;
+	}
 	.input-group-text {
 		background: $primary-color;
+		border: 0;
+	}
+	.button-copy {
+		background: #E9ECF0;
+		border-color: #CDD4DB;
+		border-left: 0;
+	}
+	.button-copy, .result-link-input {
 		border: 0;
 	}
 }
