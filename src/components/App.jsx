@@ -20,7 +20,8 @@ class App extends Component {
 			outputLink: undefined,
 			valid: false,
 			isShortening: false,
-			isShortened: false
+			isShortened: false,
+			userDataSaved: undefined
 		}
 	}
 
@@ -71,11 +72,13 @@ class App extends Component {
 
 					localStorage.setItem('values-user', JSON.stringify(itemsToSave)) // salva os dados acima em JSON
 				}
+				this.setState({ isShortening: undefined })
 			})
 	}
 
 	clearStorage = () => { // Limpa os dados salvos no localStorage
 		localStorage.clear()
+		this.setState({ userDataSaved: null }) // Não haverá dados no localstorage, então...
 	}
 
 
@@ -97,7 +100,7 @@ class App extends Component {
 					</div>
 				}
 				{
-					localStorage.getItem('values-user') !== null &&
+					userDataSaved !== null &&
 					<Historic
 						userDataSaved={userDataSaved}
 						clearStorage={() => this.clearStorage()} />
