@@ -1,7 +1,7 @@
 import React from 'react'
 import { InputGroup, InputGroupAddon, Input, Container, Col, Button } from 'reactstrap'
 
-const Form = ({ handleSearch, shortLink, shortLinkOnEnter }) => (
+const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid }) => (
 	<div className='Form'>
 
 		<Container>
@@ -12,13 +12,15 @@ const Form = ({ handleSearch, shortLink, shortLinkOnEnter }) => (
 					</InputGroupAddon>
 
 					<Input
+						bsSize='lg'
+						type='url'
 						className='input-search-name'
 						onChange={handleSearch}
 						onKeyDown={shortLinkOnEnter}
 						placeholder='Insira o link para encurtar...' />
 
 					<InputGroupAddon addonType='append'>
-						<Button onClick={shortLink} color='dark'>Encurtar</Button>
+						<Button disabled={!valid} onClick={shortLink} color='success'>Encurtar</Button>
 					</InputGroupAddon>
 
 				</InputGroup>
