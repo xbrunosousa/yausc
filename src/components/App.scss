@@ -40,4 +40,8 @@ body {
 	.fa-clipboard, .fa-clipboard-check {
 		font-size: 22px;
 	}
+	.input-group-text {
+		background: $primary-color;
+		border: 0;
+	}
 }

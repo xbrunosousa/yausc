@@ -115,7 +115,7 @@ class App extends Component {
 										type='text'
 										value={this.state.outputLink} />
 									<InputGroupAddon addonType='append'>
-										<Button onClick={this.copyLink} color='secondary'>
+										<Button onClick={this.copyLink} color='primary'>
 											{this.state.isCopied === true ? <i className='fas fa-clipboard-check copied' /> : <i className='fas fa-clipboard' />}
 										</Button>
 									</InputGroupAddon>
