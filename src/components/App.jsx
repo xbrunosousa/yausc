@@ -90,7 +90,6 @@ class App extends Component {
 		this.setState({ isCopied: true }) // Auto explicativo 🤨
 	}
 
-
 	render() {
 		const userDataSaved = JSON.parse(localStorage.getItem('values-user'))
 		return (
