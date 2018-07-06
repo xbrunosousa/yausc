@@ -3,7 +3,7 @@ import Form from './Form/Form'
 import './App.css'
 import { regexURL } from './../regex'
 import ReactGA from 'react-ga'
-import { Col, Container, Input, InputGroupAddon, Button, InputGroup } from 'reactstrap'
+import { Alert, Col, Container, Input, InputGroupAddon, Button, InputGroup } from 'reactstrap'
 import format from 'date-fns/format'
 import Historic from './Historic/Historic'
 import NavbarApp from './NavbarApp/NavbarApp'
@@ -25,11 +25,13 @@ class App extends Component {
 			isShortening: false,
 			isShortened: false,
 			userDataSaved: undefined,
-			isCopied: false
+			isCopied: false,
+			errShort: false
 		}
 	}
 
 	handleSearch = (e) => {
+		this.setState({ errShort: false })
 		const value = e.target.value
 		if (value.length !== undefined) { // Se há dados no input, defina-o no inputValue
 			this.setState({ inputValue: value })
@@ -77,6 +79,9 @@ class App extends Component {
 				}
 				this.setState({ isShortening: undefined, isCopied: false })
 			})
+			.catch(() => {
+				this.setState({ errShort: true, isShortening: false })
+			})
 	}
 
 	clearStorage = () => { // Limpa os dados salvos no localStorage
@@ -91,10 +96,11 @@ class App extends Component {
 	}
 
 	onPaste = () => {
-		console.log('Foi colado um item')
-		setTimeout(() => { 
-			this.state.valid === true ? this.shortLink() : console.log('...que não é uma URL')
-		 }, 1)
+		setTimeout(() => {
+			if (this.state.valid === true) {
+				this.shortLink()
+			}
+		}, 1)
 	}
 
 	render() {
@@ -109,6 +115,18 @@ class App extends Component {
 					valid={this.state.valid}
 					isShortening={this.state.isShortening}
 					onPaste={() => this.onPaste()} />
+
+				{
+					this.state.errShort === true &&
+					<Container>
+						<Col sm={{ size: 8, offset: 2 }}>
+							<Alert
+								className='alert-error' color='danger'>
+								Houve um erro. Por favor, verifique a URL!
+							</Alert>
+						</Col>
+					</Container>
+				}
 
 				{
 					this.state.isShortened === true &&

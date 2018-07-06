@@ -9,11 +9,7 @@
 		text-align: center;
 	}
 	.historic-clear-btn {
-		color: $button-clear;
-		border: $button-clear 1px solid;
 		margin-left: 10px;
-		&:hover {
-			color: #000;
-		}
+		font-weight: bold;
 	}
 }

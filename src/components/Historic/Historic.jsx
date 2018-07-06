@@ -9,7 +9,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 				onClick={clearStorage}
 				className='historic-clear-btn'
 				size='sm'
-				color='warning'
+				color='danger'
 				outline>
 				Limpar
 			</Button>
@@ -18,15 +18,19 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 			<Table responsive className='historic-table'>
 				<thead>
 					<tr>
+						<th>Data</th>
 						<th>Link original</th>
 						<th>Link encurtado</th>
-						<th>Data</th>
 					</tr>
 				</thead>
 				<tbody>
 					{
 						userDataSaved.map((item, key) =>
 							<tr key={key}>
+								<td>
+									{item.dateshort}
+								</td>
+
 								<td>
 									<a target='_blank'
 										title={item.originalLink}
@@ -41,10 +45,6 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 										href={item.linkshortened}>
 										{item.linkshortened.replace('http://', '')}
 									</a>
-								</td>
-
-								<td>
-									{item.dateshort}
 								</td>
 							</tr>
 						)
