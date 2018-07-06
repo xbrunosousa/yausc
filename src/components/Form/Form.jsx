@@ -2,7 +2,7 @@ import React from 'react'
 import { InputGroup, InputGroupAddon, Input, Container, Col, Button } from 'reactstrap'
 import LoadingScreen from './../LoadingScreen/LoadingScreen'
 
-const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening }) => (
+const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening, onPaste }) => (
 	<div className='Form'>
 
 		<Container>
@@ -18,6 +18,7 @@ const Form = ({ handleSearch, shortLink, shortLinkOnEnter, valid, isShortening }
 						type='url'
 						className='input-link'
 						onChange={handleSearch}
+						onPaste={onPaste}
 						onKeyDown={shortLinkOnEnter}
 						placeholder='Insira o link para encurtar...' />
 

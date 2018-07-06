@@ -31,7 +31,6 @@ class App extends Component {
 
 	handleSearch = (e) => {
 		const value = e.target.value
-
 		if (value.length !== undefined) { // Se há dados no input, defina-o no inputValue
 			this.setState({ inputValue: value })
 		}
@@ -91,17 +90,25 @@ class App extends Component {
 		this.setState({ isCopied: true }) // Auto explicativo 🤨
 	}
 
+	onPaste = () => {
+		console.log('Foi colado um item')
+		setTimeout(() => { 
+			this.state.valid === true ? this.shortLink() : console.log('...que não é uma URL')
+		 }, 1)
+	}
+
 	render() {
 		const userDataSaved = JSON.parse(localStorage.getItem('values-user'))
 		return (
-			<div className='App' style={{backgroundImage: `url(${bg})`}}>
+			<div className='App' style={{ backgroundImage: `url(${bg})` }}>
 				<NavbarApp />
 				<Form
 					handleSearch={(e) => this.handleSearch(e)}
 					shortLink={() => this.shortLink()}
 					shortLinkOnEnter={(e) => this.shortLinkOnEnter(e)}
 					valid={this.state.valid}
-					isShortening={this.state.isShortening} />
+					isShortening={this.state.isShortening}
+					onPaste={() => this.onPaste()} />
 
 				{
 					this.state.isShortened === true &&

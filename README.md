@@ -12,4 +12,4 @@
 * [x] Modularizar App.jsx;
 * [x] Desativar inputs durante encurtamento;
 * [x] Estilizar div de loading;
-* [ ] Encurtar automaticamente quando o input receber um CTRL/CMD V e o conteúdo for válido.
+* [x] Encurtar automaticamente quando o input receber um CTRL/CMD V e o conteúdo for válido.
