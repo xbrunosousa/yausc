@@ -4,7 +4,8 @@
 		padding-left: 10px;
 		font-size: 20px;
 	}
-	@include bg-gradient;
+	background: transparent;
+	border-top: 1px solid #DDE1E6;
 	margin-top: 20px;
 	bottom: 0;
 	width: 100%;
