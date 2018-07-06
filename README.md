@@ -8,7 +8,7 @@
 * [x] Footer;
 * [x] Separar SCSS/CSS por componentes;
 * [x] Salvar em localstorage os links gerados anteriormente e exibi-los;
-* [ ] Histórico em ordem cronológica;
+* [x] Histórico em ordem cronológica;
 * [x] Modularizar App.jsx;
 * [x] Desativar inputs durante encurtamento;
 * [x] Estilizar div de loading;

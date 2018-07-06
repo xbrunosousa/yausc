@@ -25,7 +25,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 				</thead>
 				<tbody>
 					{
-						userDataSaved.map((item, key) =>
+						userDataSaved.reverse().map((item, key) =>
 							<tr key={key}>
 								<td>
 									{item.dateshort}
