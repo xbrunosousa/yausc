@@ -1,15 +1,14 @@
 .FooterApp {
-	.fa-react {
-		padding-right: 10px;
-		padding-left: 10px;
-		font-size: 20px;
-	}
+	position:absolute; 
+	bottom:0;
+	width:100%;
 	background: transparent;
 	border-top: 1px solid #DDE1E6;
-	margin-top: 20px;
-	bottom: 0;
-	width: 100%;
 	padding: .75rem 1.25rem;
+	.fa-react {
+		padding: 0 10px 0 10px;
+		font-size: 20px;
+	}
 	.footer-info {
 		border-top: 0;
 		text-align: center;
@@ -17,6 +16,6 @@
 			text-decoration: none;
 			color: #2F87D0;
 		}
-		color: #8091A6;
+		color: #7c8b9e;
 	}
 }

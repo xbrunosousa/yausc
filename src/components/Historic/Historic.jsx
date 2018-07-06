@@ -3,7 +3,7 @@ import { Table, Container, Button } from 'reactstrap'
 
 const Historic = ({ clearStorage, userDataSaved }) => (
 	<div className='Historic'>
-		<span className='historic-title'>
+		<div className='historic-title'>
 			<i className='fas fa-history' /> Seu histórico de links encurtados
 			<Button
 				onClick={clearStorage}
@@ -13,7 +13,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
 				outline>
 				Limpar
 			</Button>
-		</span>
+		</div>
 		<Container>
 			<Table responsive className='historic-table'>
 				<thead>

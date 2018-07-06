@@ -8,7 +8,6 @@ import format from 'date-fns/format'
 import Historic from './Historic/Historic'
 import NavbarApp from './NavbarApp/NavbarApp'
 import FooterApp from './FooterApp/FooterApp'
-import bg from './../assets/bg.jpg'
 
 class App extends Component {
 	componentDidMount() {
@@ -106,7 +105,7 @@ class App extends Component {
 	render() {
 		const userDataSaved = JSON.parse(localStorage.getItem('values-user'))
 		return (
-			<div className='App' style={{ backgroundImage: `url(${bg})` }}>
+			<div className='App'>
 				<NavbarApp />
 				<Form
 					handleSearch={(e) => this.handleSearch(e)}
