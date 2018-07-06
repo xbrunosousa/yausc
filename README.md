@@ -1,6 +1,6 @@
 # YAUSC - Yet Another URL Shortener Client
 
-## ToDo - Updates futuros:
+## ToDo:
 
 * [x] Botão para copiar textarea para o clipboard;
 * [x] Navbar;
