@@ -12,7 +12,7 @@ import FooterApp from './FooterApp/FooterApp'
 class App extends Component {
 	componentDidMount() {
 		// Google Analytics
-		ReactGA.initialize('UA-118867430-1')
+		ReactGA.initialize('UA-121994767-1')
 		ReactGA.pageview(window.location.pathname + window.location.search)
 	}
 	constructor() {
