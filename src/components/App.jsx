@@ -104,6 +104,7 @@ class App extends Component {
 
 	render() {
 		const userDataSaved = JSON.parse(localStorage.getItem('values-user'))
+		const QR_CODE_URL = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='
 		return (
 			<div className='App'>
 				<NavbarApp />
@@ -147,6 +148,9 @@ class App extends Component {
 							</div>
 						</Col>
 					</Container>
+				}
+				{this.state.isShortened === true &&
+					<img className='qrcode' alt='Qr Code' src={`${QR_CODE_URL}${this.state.outputLink}`} />
 				}
 
 				{
