@@ -13,4 +13,4 @@
 * [x] Desativar inputs durante encurtamento;
 * [x] Estilizar div de loading;
 * [x] Encurtar automaticamente quando o input receber um CTRL/CMD V e o conteúdo for válido;
-* [ ] Button para fechar alert de URL inválida;
+* [x] Qr Code;
