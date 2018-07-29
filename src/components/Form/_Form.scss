@@ -1,20 +1,20 @@
 .Form {
-	margin-top: 20px;
-	.input-group-text {
-		background: $primary-color;
-		border: 0;
-	}
-	.fa-link {
-		color: #fff;
-		font-size: 22px;
-	}
-	.input-link {
-		border: 0;
-		text-align: center;
-		&:focus {
-			border: 0;
- 			box-shadow: none;
-  			outline: 0 none;
-		}
-	}
+  margin-top: 20px;
+  .input-group-text {
+    background: $primary-color;
+    border: 0;
+  }
+  .fa-link {
+    color: #fff;
+    font-size: 22px;
+  }
+  .input-link {
+    border: 0;
+    text-align: center;
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
+    }
+  }
 }

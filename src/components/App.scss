@@ -1,11 +1,18 @@
 // variables
 $button-clear: #ffa500;
-$primary-color: #006BFF;
+$primary-color: #006bff;
 $color-success: #5fe83a;
 
 // mixins
 @mixin bg-gradient {
-	background-image: linear-gradient(to right, #eaecee, #edeff1, #f0f2f4, #f4f6f8, #f7f9fb);
+  background-image: linear-gradient(
+    to right,
+    #eaecee,
+    #edeff1,
+    #f0f2f4,
+    #f4f6f8,
+    #f7f9fb
+  );
 }
 
 // imports
@@ -16,62 +23,64 @@ $color-success: #5fe83a;
 @import './FooterApp/FooterApp';
 
 body {
-	background: #F8F5EF url('../assets/bg.jpg');
-	min-height:100%; 
-	padding:0; 
-	margin:0; 
-	position:relative;
-	&::after {
-		content:'';
-		display:block;
-		height:50px;
-	}
+  background: #f8f5ef url('../assets/bg.jpg');
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    height: 50px;
+  }
 }
 html {
-	height:100%;
+  height: 100%;
 }
 .App {
-	.result-link {
-		margin-top: 20px;
-	}
-	.result-link-input {
-		&:focus {
-			border: 0;
- 			box-shadow: none;
-  			outline: 0 none;
-		}
-		text-align: center;
-		&::selection {
-			background: $color-success;
-		}
-	}
-	.copied {
-		color: $color-success;
-	}
-	.fa-clipboard, .fa-clipboard-check {
-		font-size: 22px;
-	}
-	.fa-clipboard {
-		text-shadow: 0px 0px 1px #000;
-	}
-	.input-group-text {
-		background: $primary-color;
-		border: 0;
-	}
-	.button-copy {
-		background: #E9ECF0;
-		border-color: #CDD4DB;
-		border-left: 0;
-	}
-	.button-copy, .result-link-input {
-		border: 0;
-	}
-	.alert-error {
-		margin-top: 10px;
-		text-align: center;
-	}
-	.qrcode {
-		margin: 15px auto;
-		display: block;
-	}
+  .result-link {
+    margin-top: 20px;
+  }
+  .result-link-input {
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
+    }
+    text-align: center;
+    &::selection {
+      background: $color-success;
+    }
+  }
+  .copied {
+    color: $color-success;
+  }
+  .fa-clipboard,
+  .fa-clipboard-check {
+    font-size: 22px;
+  }
+  .fa-clipboard {
+    text-shadow: 0px 0px 1px #000;
+  }
+  .input-group-text {
+    background: $primary-color;
+    border: 0;
+  }
+  .button-copy {
+    background: #e9ecf0;
+    border-color: #cdd4db;
+    border-left: 0;
+  }
+  .button-copy,
+  .result-link-input {
+    border: 0;
+  }
+  .alert-error {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .qrcode {
+    margin: 15px auto;
+    display: block;
+  }
 }

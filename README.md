@@ -14,3 +14,4 @@
 * [x] Estilizar div de loading;
 * [x] Encurtar automaticamente quando o input receber um CTRL/CMD V e o conteúdo for válido;
 * [x] Qr Code;
+* [ ] Adicionar mensagem para aguardar o carregamento do QrCode...;
