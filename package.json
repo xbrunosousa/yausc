@@ -15,6 +15,7 @@
 		"react-dom": "^16.4.1",
 		"react-ga": "^2.5.3",
 		"react-scripts": "1.1.4",
+		"react-toastify": "^4.2.0",
 		"reactstrap": "^6.2.0"
 	},
 	"scripts": {
