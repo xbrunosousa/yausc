@@ -1,5 +1,5 @@
-import React from 'react'
-import { Table, Container, Button } from 'reactstrap'
+import React from 'react';
+import { Table, Container, Button } from 'reactstrap';
 
 const Historic = ({ clearStorage, userDataSaved }) => (
   <div className="Historic">
@@ -32,6 +32,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
               <td>
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   title={item.originalLink}
                   href={item.originalLink}
                 >
@@ -45,6 +46,7 @@ const Historic = ({ clearStorage, userDataSaved }) => (
               <td>
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   title={item.linkshortened}
                   href={item.linkshortened}
                 >
@@ -57,6 +59,6 @@ const Historic = ({ clearStorage, userDataSaved }) => (
       </Table>
     </Container>
   </div>
-)
+);
 
-export default Historic
+export default Historic;

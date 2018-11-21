@@ -3,6 +3,13 @@ $button-clear: #ffa500;
 $primary-color: #006bff;
 $color-success: #5fe83a;
 
+// imports
+@import './FooterApp';
+@import './Form';
+@import './Historic';
+@import './LoadingScreen';
+@import './NavbarApp';
+
 // mixins
 @mixin bg-gradient {
   background-image: linear-gradient(
@@ -15,15 +22,8 @@ $color-success: #5fe83a;
   );
 }
 
-// imports
-@import './Form/Form';
-@import './LoadingScreen/LoadingScreen';
-@import './Historic/Historic';
-@import './NavbarApp/NavbarApp';
-@import './FooterApp/FooterApp';
-
 body {
-  background: #f8f5ef url('../assets/bg.jpg');
+  background: #f8f5ef url('../bg.jpg');
   min-height: 100%;
   padding: 0;
   margin: 0;

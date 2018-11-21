@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Form from './Form/Form';
-import './App.css';
+import Form from './Form';
 import { regexURL } from './../regex';
 import ReactGA from 'react-ga';
 import {
@@ -12,9 +11,9 @@ import {
   InputGroup
 } from 'reactstrap';
 import format from 'date-fns/format';
-import Historic from './Historic/Historic';
-import NavbarApp from './NavbarApp/NavbarApp';
-import FooterApp from './FooterApp/FooterApp';
+import Historic from './Historic';
+import NavbarApp from './NavbarApp';
+import FooterApp from './FooterApp';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -49,18 +48,16 @@ class App extends Component {
   handleSearch = e => {
     this.setState({ errShort: false });
     const value = e.target.value;
-    if (value.length !== undefined) {
-      // Se há dados no input, defina-o no inputValue
+    if (value.length) {
       this.setState({ inputValue: value });
     }
-    regexURL.test(value) === true
+    regexURL.test(value)
       ? this.setState({ valid: true })
       : this.setState({ valid: false });
   };
 
   shortLinkOnEnter = e => {
-    if (this.state.valid === true && e.keyCode === 13) {
-      // Se pressionado enter e o campo é válido...
+    if (this.state.valid && e.keyCode === 13) {
       this.shortLink();
     }
   };
@@ -68,7 +65,7 @@ class App extends Component {
   shortLink = () => {
     const TOKEN = '5e933564f8015b00e7b23a4830acff93b45f2850';
     const BitlyClient = require('bitly');
-    const bitly = new BitlyClient(TOKEN); // Generic Access Token bit.ly
+    const bitly = new BitlyClient(TOKEN);
     this.setState({ isShortening: true });
     bitly
       .shorten(this.state.inputValue)
@@ -80,28 +77,25 @@ class App extends Component {
         });
         this.successShortToast('Link encurtado com sucesso!');
         if ('values-user' in localStorage) {
-          // Se existir dados salvos no localstorage...
-          const oldItems = JSON.parse(localStorage.getItem('values-user')); // recupera os dados para o oldItems
+          const oldItems = JSON.parse(localStorage.getItem('values-user'));
 
           const newItems = {
-            // Dados para salvar
             linkshortened: this.state.outputLink,
             dateshort: format(new Date(), 'DD/MM, HH:mm'),
             originalLink: this.state.inputValue
           };
-          oldItems.push(newItems); // concatena os novos items com os itens antigos
-          localStorage.setItem('values-user', JSON.stringify(oldItems)); // Envia os dados concatenados para o storage
+          oldItems.push(newItems);
+          localStorage.setItem('values-user', JSON.stringify(oldItems));
         } else {
           const itemsToSave = [
             {
-              // dados que serão salvos no storage...
               linkshortened: this.state.outputLink,
               dateshort: format(new Date(), 'DD/MM, HH:mm'),
               originalLink: this.state.inputValue
             }
           ];
 
-          localStorage.setItem('values-user', JSON.stringify(itemsToSave)); // salva os dados acima em JSON
+          localStorage.setItem('values-user', JSON.stringify(itemsToSave));
         }
         this.setState({ isShortening: undefined, isCopied: false });
       })
@@ -111,21 +105,20 @@ class App extends Component {
   };
 
   clearStorage = () => {
-    // Limpa os dados salvos no localStorage
     localStorage.clear();
-    this.setState({ userDataSaved: null }); // Não haverá dados no localstorage, então...
+    this.setState({ userDataSaved: null });
   };
 
   copyLink = () => {
-    document.getElementById('result').select(); // seleciona conteúdo do input
-    document.execCommand('copy'); // copy selected
-    this.setState({ isCopied: true }); // Auto explicativo 🤨
+    document.getElementById('result').select();
+    document.execCommand('copy');
+    this.setState({ isCopied: true });
     this.successShortToast('Copiado para o clipboard! ✅');
   };
 
   onPaste = () => {
     setTimeout(() => {
-      if (this.state.valid === true) {
+      if (this.state.valid) {
         this.shortLink();
       }
     }, 1);
@@ -174,7 +167,7 @@ class App extends Component {
                   />
                   <InputGroupAddon addonType="append">
                     <Button className="button-copy" onClick={this.copyLink}>
-                      {this.state.isCopied === true ? (
+                      {this.state.isCopied ? (
                         <i className="fas fa-clipboard-check copied" />
                       ) : (
                         <i className="fas fa-clipboard" />
@@ -192,7 +185,7 @@ class App extends Component {
           </Container>
         )}
 
-        {userDataSaved !== null && (
+        {userDataSaved && (
           <Historic
             userDataSaved={userDataSaved}
             clearStorage={() => this.clearStorage()}

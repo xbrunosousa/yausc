@@ -7,7 +7,7 @@ import {
   Col,
   Button
 } from 'reactstrap'
-import LoadingScreen from './../LoadingScreen/LoadingScreen'
+import LoadingScreen from './LoadingScreen'
 
 const Form = ({
   handleSearch,

@@ -1,30 +1,38 @@
 {
-	"name": "yausc",
-	"version": "0.0.1",
-	"description": "Yet Another URL Shortener Client",
-	"repository": "https://github.com/xbrunosousa/YAUSC",
-	"homepage": "https://bruno.vin/YAUSC",
-	"author": "Bruno Vinícius <mail@bruno.vin>",
-	"license": "MIT",
-	"private": true,
-	"dependencies": {
-		"bitly": "5.1.7",
-		"date-fns": "^1.29.0",
-		"gh-pages": "^1.2.0",
-		"react": "^16.4.1",
-		"react-dom": "^16.4.1",
-		"react-ga": "^2.5.3",
-		"react-scripts": "1.1.4",
-		"react-toastify": "^4.2.0",
-		"reactstrap": "^6.2.0"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"eject": "react-scripts eject",
-		"styles": "sass --watch src/components/App.scss:src/components/App.css --style compressed",
-		"predeploy": "yarn build",
-		"deploy": "gh-pages -d build"
-	}
+  "name": "yausc",
+  "version": "0.0.1",
+  "description": "Yet Another URL Shortener Client",
+  "repository": "https://github.com/xbrunosousa/YAUSC",
+  "homepage": "https://bruno.vin/YAUSC",
+  "author": "Bruno Vinícius <mail@bruno.vin>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bitly": "5.1.7",
+    "date-fns": "^1.29.0",
+    "gh-pages": "^2.0.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-ga": "^2.5.3",
+    "react-scripts": "2.1.1",
+    "react-toastify": "^4.4.3",
+    "reactstrap": "^6.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "node-sass": "^4.10.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
