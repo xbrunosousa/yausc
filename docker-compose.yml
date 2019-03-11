@@ -10,11 +10,11 @@ services:
   nginx:
     image: bruno/yausc
     restart: always
-    labels:
-      - 'traefik.enable=true'
-      - traefik.frontend.rule=Host:yausc.xyz
-      - traefik.docker.network=web
-      - traefik.port=80
     networks:
       - internal
       - web
+    labels:
+      - traefik.port=20101
+      - traefik.docker.network=web
+      - traefik.frontend.rule=Host:yausc.xyz
+      - 'traefik.enable=true'

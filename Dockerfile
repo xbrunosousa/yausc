@@ -1,10 +1,10 @@
-FROM node as builder
+FROM node
 WORKDIR /app
 COPY package*.json /app/
 COPY yarn.lock /app/
 RUN yarn
-COPY ./ /app/
+COPY . .
 RUN yarn build
+CMD ["yarn", "start"]
 
-FROM nginx:alpine
-COPY --from=builder /app/build/ /usr/share/nginx/html
+EXPOSE 20101
