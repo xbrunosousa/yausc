@@ -28,10 +28,12 @@ export default class Home extends React.Component {
   };
 
   componentDidMount = () => {
-    let userDataSaved = JSON.parse(
-      localStorage.getItem('values-user')
-    ).reverse();
-    this.setState({ userDataSaved });
+    if (localStorage.getItem('values-user')) {
+      let userDataSaved = JSON.parse(
+        localStorage.getItem('values-user')
+      ).reverse();
+      this.setState({ userDataSaved });
+    }
   };
 
   handleSearch = e => {
