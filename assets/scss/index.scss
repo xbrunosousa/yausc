@@ -1,14 +1,19 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~react-toastify/scss/main.scss';
+
 // variables
 $button-clear: #ffa500;
 $primary-color: #006bff;
 $color-success: #5fe83a;
+$z-loading: 11;
 
 // imports
-@import './FooterApp';
-@import './Form';
-@import './Historic';
-@import './LoadingScreen';
-@import './NavbarApp';
+@import './footer';
+@import './form';
+@import './historic';
+@import './loading-screen';
+@import './navbar';
+@import './nprogress';
 
 // mixins
 @mixin bg-gradient {
@@ -23,7 +28,7 @@ $color-success: #5fe83a;
 }
 
 body {
-  background: #f8f5ef url('../bg.jpg');
+  background: #f8f5ef url('../img/bg.jpg');
   min-height: 100%;
   padding: 0;
   margin: 0;

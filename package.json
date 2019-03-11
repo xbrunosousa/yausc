@@ -7,25 +7,28 @@
   "author": "Bruno Vinícius <mail@bruno.vin>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "next -p 20101",
+    "build": "next build",
+    "start": "next start -p 20101"
+  },
   "dependencies": {
     "bitly": "5.1.7",
+    "bootstrap": "^4.3.1",
     "date-fns": "^1.29.0",
     "gh-pages": "^2.0.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-ga": "^2.5.3",
-    "react-scripts": "2.1.1",
-    "react-toastify": "^4.4.3",
-    "reactstrap": "^6.5.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "next": "^8.0.3",
+    "next-fonts": "^0.17.0",
+    "next-images": "^1.1.1",
+    "nprogress": "^0.2.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-ga": "^2.5.7",
+    "react-toastify": "^4.4.3"
   },
   "devDependencies": {
-    "node-sass": "^4.10.0"
+    "@zeit/next-sass": "^1.0.1",
+    "node-sass": "^4.11.0"
   },
   "browserslist": [
     ">0.2%",
