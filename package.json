@@ -13,6 +13,7 @@
     "start": "next start -p 20101"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bitly": "5.1.7",
     "bootstrap": "^4.3.1",
     "date-fns": "^1.29.0",

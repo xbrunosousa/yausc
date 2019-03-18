@@ -1,0 +1,13 @@
+build:
+  image: node
+  stage: deploy
+  only:
+    - master
+  script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_PROD" >> ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - ssh -p 2786 root@yausc.xyz "cd /root/yausc.xyz && git fetch && git pull origin master"
+    - ssh -p 2786 root@yausc.xyz "cd /root/yausc.xyz && docker build --rm -f Dockerfile -t bruno/yausc:latest . "
+    - ssh -p 2786 root@yausc.xyz "cd /root/yausc.xyz && docker-compose up -d && docker update --restart=always yauscxyz_nginx_1"

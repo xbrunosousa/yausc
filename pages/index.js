@@ -6,6 +6,7 @@ import format from 'date-fns/format';
 import { regexURL } from './../helpers/regex';
 import Form from './../components/Form';
 import { toast } from 'react-toastify';
+import API from './../helpers/api';
 
 export default class Home extends React.Component {
   state = {
@@ -54,15 +55,14 @@ export default class Home extends React.Component {
   };
 
   shortLink = () => {
-    const TOKEN = '5e933564f8015b00e7b23a4830acff93b45f2850';
-    const BitlyClient = require('bitly');
-    const bitly = new BitlyClient(TOKEN);
+    // const TOKEN = '5e933564f8015b00e7b23a4830acff93b45f2850';
+    // const BitlyClient = require('bitly');
     this.setState({ isShortening: true });
-    bitly
-      .shorten(this.state.inputValue)
+    let url = this.state.inputValue;
+    API.post('/short', { url })
       .then(res => {
         this.setState({
-          outputLink: res.data.url,
+          outputLink: res.data.shorted_link,
           isShortening: false,
           isShortened: true
         });
