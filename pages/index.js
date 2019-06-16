@@ -55,8 +55,6 @@ export default class Home extends React.Component {
   };
 
   shortLink = () => {
-    // const TOKEN = '5e933564f8015b00e7b23a4830acff93b45f2850';
-    // const BitlyClient = require('bitly');
     this.setState({ isShortening: true });
     let url = this.state.inputValue;
     API.post('/short', { url })
@@ -87,8 +85,13 @@ export default class Home extends React.Component {
           ];
 
           localStorage.setItem('values-user', JSON.stringify(itemsToSave));
+          // show historic
+          let userDataSaved = JSON.parse(
+            localStorage.getItem('values-user')
+          ).reverse();
+          this.setState({ userDataSaved });
         }
-        this.setState({ isShortening: undefined, isCopied: false });
+        this.setState({ isShortening: false, isCopied: false });
       })
       .catch(() => {
         this.setState({ errShort: true, isShortening: false });
@@ -112,7 +115,7 @@ export default class Home extends React.Component {
       if (this.state.valid) {
         this.shortLink();
       }
-    }, 1);
+    }, 100);
   };
 
   errorShortToast = () => {
