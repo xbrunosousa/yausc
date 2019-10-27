@@ -32,4 +32,4 @@ jobs:
         run: ssh www-data@yausc.xyz "cd /var/www/yausc.xyz && yarn build"
 
       - name: Start pm2
-        run: ssh www-data@api.brunosousa.dev "cd /var/www/yausc.xyz && pm2 delete yausc && pm2 start --name api yausc -- start && pm2 save"
+        run: ssh www-data@api.brunosousa.dev "cd /var/www/yausc.xyz && pm2 delete yausc && pm2 start --name yausc -- start && pm2 save"
