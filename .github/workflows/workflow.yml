@@ -1,0 +1,35 @@
+name: Deploy to DigitalOcean + Nginx
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: webfactory/ssh-agent@v0.1.1
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_PRIVATE }}
+
+      - name: Setup ssh host checking
+        run: echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > $HOME/.ssh/config
+
+      - name: Set Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 10.x
+
+      - name: Deploy to DigitalOcean
+        run: rsync -rav -e "ssh" --delete ./ --progress www-data@yausc.xyz:/var/www/yausc.xyz/
+
+      - name: Install dependencies
+        run: ssh www-data@yausc.xyz "cd /var/www/yausc.xyz && yarn"
+
+      - name: kk
+        run: ssh www-data@yausc.xyz "cd /var/www/yausc.xyz && yarn build"
+
+      - name: Start pm2
+        run: ssh www-data@api.brunosousa.dev "cd /var/www/yausc.xyz && pm2 delete yausc && pm2 start --name api yausc -- start && pm2 save"
