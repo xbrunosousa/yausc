@@ -20,16 +20,16 @@ jobs:
       - name: Set Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 10.x
+          node-version: 10.15.2
+          
+      - name: Install dependencies
+        run: yarn
+        
+      - name: Build
+        run: yarn build
 
       - name: Deploy to DigitalOcean
         run: rsync -rav -e "ssh" --delete ./ --progress www-data@yausc.xyz:/var/www/yausc.xyz/
-
-      - name: Install dependencies
-        run: ssh www-data@yausc.xyz "cd /var/www/yausc.xyz && yarn"
-
-      - name: kk
-        run: ssh www-data@yausc.xyz "cd /var/www/yausc.xyz && yarn build"
 
       - name: Start pm2
         run: ssh www-data@api.brunosousa.dev "cd /var/www/yausc.xyz && pm2 delete yausc && pm2 start --name yausc yarn -- start && pm2 save"
