@@ -17,3 +17,4 @@
 * [x] Next.JS
 * [ ] Adicionar mensagem para aguardar o carregamento do QrCode...;
 * [ ] Multi-idioma
+* [ ] 
